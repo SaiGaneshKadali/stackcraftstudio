@@ -1,0 +1,266 @@
+{
+  "en": {
+    "page": {
+      "title": "StackCraft Studio | Custom Websites, WordPress, React & Node.js",
+      "description": "We Build. We Maintain. We Grow. Freelance web development and website maintenance studio specializing in WordPress, React, Node.js, and custom websites.",
+      "heading": "Websites Built to Perform. Maintained to Last."
+    },
+    "navigation": {
+      "menu": [
+        { "label": "Work", "href": "#work" },
+        { "label": "Services", "href": "#services" },
+        { "label": "About", "href": "#about" },
+        { "label": "Process", "href": "#process" },
+        { "label": "FAQ", "href": "#faq3" }
+      ],
+      "cta": {
+        "label": "Start a Project",
+        "hoverLabel": "Let's Talk",
+        "href": "#contact"
+      },
+      "aria": {
+        "menuOpen": "Open navigation menu",
+        "menuClose": "Close menu",
+        "menuExpand": "Expand submenu",
+        "navMain": "Main navigation",
+        "drawer": "Navigation menu"
+      }
+    },
+    "sections": {
+      "stackcraftstudio-hero": {
+        "eyebrow": "WE BUILD. WE MAINTAIN. WE GROW.",
+        "heading": "Websites Built to Perform.",
+        "headingAccent": "Maintained to Last.",
+        "description": "Fast, conversion-focused WordPress, React, Node.js, and custom websites backed by dependable ongoing maintenance.",
+        "primaryCTA": { "label": "Start a Project", "href": "#contact" },
+        "secondaryCTA": { "label": "Explore Services", "href": "#services" },
+        "trustedBy": "",
+        "trustItems": [],
+        "image": "/assets/images/stackcraftstudio/stackcraftstudio-hero.webp",
+        "imageAlt": "Developer workspace showing web design and coding workflow",
+        "stats": [
+          { "value": "WordPress", "label": "Business & Portfolio Sites" },
+          { "value": "React", "label": "Interactive Frontend Apps" },
+          { "value": "Node.js", "label": "APIs & Backend Systems" },
+          { "value": "Care Plans", "label": "Updates, Backups & Fixes" }
+        ]
+      },
+      "stackcraftstudio-projects": {
+        "title": "Selected Work",
+        "description": "Client websites built with WordPress and React.",
+        "linkLabel": "Let's Talk",
+        "linkHref": "#contact",
+        "items": [
+          {
+            "category": "WordPress Website Development",
+            "title": "Rontech Solutions",
+            "description": "Corporate IT training and services website built on WordPress with clear service structure and quote request CTAs.",
+            "href": "https://rontechsol.com/",
+            "image": "/assets/images/stackcraftstudio/stackcraftstudio-project-rontech.webp",
+            "alt": "Rontech Solutions WordPress website homepage"
+          },
+          {
+            "category": "React Website Development",
+            "title": "Algointelligenz",
+            "description": "Modern responsive frontend application built with React for an AI and software engineering education platform.",
+            "href": "https://algointelligenz.com/",
+            "image": "/assets/images/stackcraftstudio/stackcraftstudio-project-algointelligenz.webp",
+            "alt": "Algointelligenz React web application homepage"
+          },
+          {
+            "category": "WordPress Website Development",
+            "title": "Swhizz",
+            "description": "WordPress IT training institute website featuring course catalogs, upcoming batches, and student registration flows.",
+            "href": "https://swhizz.in/",
+            "image": "/assets/images/stackcraftstudio/stackcraftstudio-project-swhizz.webp",
+            "alt": "Swhizz WordPress website homepage"
+          },
+          {
+            "category": "WordPress Website Development",
+            "title": "MB Al Moqatam Contracting",
+            "description": "Construction and architectural services business website built on WordPress with project and team showcases.",
+            "href": "https://almoqatamcont.com/",
+            "image": "/assets/images/stackcraftstudio/stackcraftstudio-project-almoqatam.webp",
+            "alt": "MB Al Moqatam Contracting WordPress website homepage"
+          }
+        ]
+      },
+      "stackcraftstudio-services": {
+        "title": "Services Built Around Your Website",
+        "description": "",
+        "linkLabel": "Start a Project",
+        "linkHref": "#contact",
+        "items": [
+          {
+            "number": "01.",
+            "icon": "layout",
+            "title": "WordPress Website Development",
+            "description": "Business websites, landing pages, portfolio websites, and tailored WordPress customization built for straightforward editing.",
+            "href": "#contact"
+          },
+          {
+            "number": "02.",
+            "icon": "atom",
+            "title": "React Development",
+            "description": "Modern, responsive, interactive web applications and component-driven frontend development engineered for speed.",
+            "href": "#contact"
+          },
+          {
+            "number": "03.",
+            "icon": "hard-drives",
+            "title": "Node.js Development",
+            "description": "Scalable backend development, REST APIs, database integrations, and reliable server-side application logic.",
+            "href": "#contact"
+          },
+          {
+            "number": "04.",
+            "icon": "code",
+            "title": "Custom Website Development",
+            "description": "Tailor-made websites crafted from scratch around your exact business goals, workflows, and brand identity.",
+            "href": "#contact"
+          },
+          {
+            "number": "05.",
+            "icon": "wrench",
+            "title": "Website Maintenance & Support",
+            "description": "Bug fixes, security updates, performance optimization, content updates, automated backups, and ongoing technical support.",
+            "href": "#contact"
+          }
+        ]
+      },
+      "stackcraftstudio-team": {
+        "eyebrow": "ABOUT STACKCRAFT STUDIO",
+        "title": "Reliable engineering, clear communication, long-term care",
+        "description": "StackCraft Studio is a freelance web development studio led by Sai Ganesh Kadali in Hyderabad, India. We partner with founders, agencies, and local businesses to build websites that work smoothly and stay well-maintained after launch.",
+        "image": "/assets/images/stackcraftstudio/stackcraftstudio-about-team.webp",
+        "imageAlt": "StackCraft Studio web development and collaboration workspace",
+        "studioBadge": "Hyderabad, Telangana, India · Available for Global Remote Work",
+        "checks": [
+          "Flexible stack choice across WordPress, React, Node.js, or custom builds",
+          "Clean, responsive layouts tested across desktop and mobile viewports",
+          "Direct post-launch maintenance for updates, backups, and bug fixes"
+        ],
+        "buttonLabel": "Let's Talk",
+        "buttonHref": "#contact"
+      },
+      "process-icon-steps": {
+        "heading": "How We Work",
+        "description": "A transparent four-step workflow from initial requirements to deployment and ongoing website care.",
+        "steps": [
+          {
+            "num": 1,
+            "title": "Requirements & Scope",
+            "description": "We discuss your goals, required pages, and features to recommend the right fit across WordPress, React, Node.js, or custom code.",
+            "icon": "diagnose"
+          },
+          {
+            "num": 2,
+            "title": "Structure & UI Plan",
+            "description": "We align on page hierarchy, responsive wireframes, and clear calls to action before full implementation begins.",
+            "icon": "plan"
+          },
+          {
+            "num": 3,
+            "title": "Build & Deployment",
+            "description": "We write clean code, integrate APIs or CMS controls, test performance across devices, and launch safely on your domain.",
+            "icon": "implement"
+          },
+          {
+            "num": 4,
+            "title": "Maintenance & Growth",
+            "description": "After launch, we support your website with security updates, bug fixes, backups, content edits, and speed tuning.",
+            "icon": "monitor"
+          }
+        ]
+      },
+      "faq3": {
+        "title": "Frequently Asked Questions",
+        "description": "Clear answers on website builds, pricing structure, timelines, and ongoing maintenance support.",
+        "tagline": "FAQ",
+        "items": [
+          {
+            "q": "Which technology should I choose: WordPress, React, or a custom build?",
+            "a": "If you want easy self-editing for a business site, blog, or landing page, WordPress works great. If you need rich interactive features, dashboards, or custom API workflows, React and Node.js are ideal. During our initial chat, we recommend the simplest reliable stack for your goals."
+          },
+          {
+            "q": "How is project pricing and timeline determined?",
+            "a": "Pricing and timelines depend on scope, number of pages, integrations, and custom functionality. Focused business or portfolio sites typically launch in 1 to 3 weeks, while custom React and Node.js applications are scoped with clear milestones and upfront estimates."
+          },
+          {
+            "q": "What does Website Maintenance & Support include?",
+            "a": "Maintenance covers routine security and dependency updates, plugin or package compatibility checks, bug fixes, scheduled backups, uptime and speed optimization, and day-to-day content or layout updates."
+          },
+          {
+            "q": "Can you fix bugs or take over maintenance on an existing website?",
+            "a": "Yes. Whether your existing WordPress, React, Node.js, or HTML site needs troubleshooting, speed optimization, layout fixes, or ongoing care, we start with a quick technical audit and resolve issues cleanly."
+          },
+          {
+            "q": "Will my website be mobile-friendly and SEO-ready?",
+            "a": "Every site we build is mobile-first, tested across phone, tablet, and desktop screen sizes, and structured with clean semantic HTML, fast asset loading, and proper SEO metadata."
+          }
+        ]
+      },
+      "testimonial-v2": {
+        "title": "Client Reviews",
+        "description": "Feedback across our WordPress and React website builds and ongoing maintenance support.",
+        "tagline": "Reviews",
+        "avatarAltPrefix": "Client badge",
+        "items": [
+          {
+            "badge": "WordPress Website",
+            "quote": "StackCraft Studio delivered a clean, well-structured WordPress website that makes our IT training programs and services easy to explore and update.",
+            "author": "Rontech Solutions",
+            "initials": "RS",
+            "role": "rontechsol.com"
+          },
+          {
+            "badge": "React Web Application",
+            "quote": "Our React frontend launched with crisp typography, responsive layouts, and fast navigation tailored for prospective software engineering students.",
+            "author": "Algointelligenz",
+            "initials": "AI",
+            "role": "algointelligenz.com"
+          },
+          {
+            "badge": "WordPress Website",
+            "quote": "From course listings and upcoming batch schedules to student inquiry flows, our WordPress site runs smoothly and is simple for our team to manage.",
+            "author": "Swhizz",
+            "initials": "SW",
+            "role": "swhizz.in"
+          },
+          {
+            "badge": "WordPress Website",
+            "quote": "Reliable communication from start to launch. Our WordPress business website presents our construction portfolio and services cleanly on every device.",
+            "author": "MB Al Moqatam Contracting",
+            "initials": "AM",
+            "role": "almoqatamcont.com"
+          }
+        ]
+      }
+    },
+    "footer": {
+      "eyebrow": "WE BUILD. WE MAINTAIN. WE GROW.",
+      "heading": "Ready to build together?",
+      "description": "Looking for a reliable freelancer to create a new website or maintain an existing one? Let's discuss your requirements.",
+      "primaryLabel": "Start a Project",
+      "primaryHref": "#contact",
+      "secondaryLabel": "Explore Services",
+      "secondaryHref": "#services",
+      "legalLinks": [
+        { "label": "Privacy Policy", "href": "/privacy-policy/" },
+        { "label": "Cookies", "href": "/cookies/" }
+      ],
+      "footerLinks": [
+        { "label": "Work", "href": "#work" },
+        { "label": "Services", "href": "#services" },
+        { "label": "About", "href": "#about" },
+        { "label": "Process", "href": "#process" },
+        { "label": "FAQ", "href": "#faq3" },
+        { "label": "Contact", "href": "#contact" }
+      ],
+      "ariaLegal": "Legal documents",
+      "ariaNavigation": "Footer navigation",
+      "copyright": "© 2026 StackCraft Studio. All rights reserved.",
+      "attributionText": "Hyderabad, Telangana, India · Web Development & Maintenance"
+    }
+  }
+}

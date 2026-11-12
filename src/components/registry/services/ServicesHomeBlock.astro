@@ -1,0 +1,279 @@
+---
+import Section from "@components/ui/layout/Section.astro";
+import Container from "@components/ui/layout/Container.astro";
+import Heading from "@components/ui/atoms/Heading.astro";
+import Text from "@components/ui/atoms/Text.astro";
+import Icon from "@components/ui/atoms/Icon.astro";
+import jsonData from "@data/sections/stackcraftstudio-services.json";
+
+type Service = { number: string; icon?: string; title: string; description: string; href?: string };
+interface Props { id?: string; locale?: "en"; title?: string; description?: string; linkLabel?: string; linkHref?: string; items?: Service[]; class?: string; }
+const props = Astro.props as Props;
+const title = props.title ?? jsonData.title;
+const description = props.description ?? jsonData.description;
+const linkLabel = props.linkLabel ?? jsonData.linkLabel;
+const linkHref = props.linkHref ?? jsonData.linkHref;
+const items = props.items ?? jsonData.items;
+const hasDescription = Boolean(description?.trim());
+---
+
+<Section id={props.id ?? "services"} tone="page" class:list={["services-section", props.class]}>
+  <Container class="w-full max-w-none px-[clamp(1.5rem,5vw,5rem)]">
+    <div class:list={["studio-services-intro", !hasDescription && "studio-services-intro--compact"]}>
+      <div>
+        <Heading tag="h2" variant="section-title">{title}</Heading>
+      </div>
+      {hasDescription && (
+        <div class="studio-services-description-wrap">
+          <Text variant="lead">{description}</Text>
+        </div>
+      )}
+      <div class="studio-services-link-wrap">
+        <a class="group inline-flex items-center gap-2 whitespace-nowrap transition-colors duration-300 hover:!text-brand-accent motion-reduce:transition-none" href={linkHref}>
+          <span class="transition-transform duration-300 ease-out group-hover:-translate-x-1 motion-reduce:transition-none">{linkLabel}</span>
+          <span class="inline-flex size-5 items-center justify-center leading-none transition-transform duration-300 ease-out group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+    <div class="studio-services-grid" data-service-count={items.length}>
+      {items.map((item) => (
+        <a
+          href={item.href ?? "#contact"}
+          data-service-select={item.title}
+          class="studio-service-card ui-card-interactive group cursor-pointer transition-[background-color,border-color,box-shadow,transform] duration-300 ease-out hover:border-brand-accent hover:bg-brand-accent/10 motion-reduce:transition-none"
+        >
+          <div class="studio-service-icon transition-[background-color,border-color,color] duration-300 group-hover:border-brand-accent group-hover:bg-brand-accent group-hover:text-brand-dark motion-reduce:transition-none" aria-hidden="true">
+            <Icon name={item.icon ?? "sparkle"} />
+          </div>
+          <div class="studio-service-content">
+            <div class="studio-service-title-line">
+              <Text tag="span" variant="accent-label" class="studio-service-number transition-colors duration-300 group-hover:text-brand-dark/80 motion-reduce:transition-none">{item.number}</Text>
+              <Heading tag="h3" variant="feature-title" class="studio-service-title">{item.title}</Heading>
+            </div>
+            <Text variant="body" class="studio-service-description transition-colors duration-300 group-hover:text-brand-dark/80 motion-reduce:transition-none">{item.description}</Text>
+          </div>
+          <span class="studio-service-arrow overflow-hidden transition-[background-color,border-color,color] duration-300 group-hover:border-brand-accent group-hover:bg-brand-accent group-hover:text-brand-light motion-reduce:transition-none" aria-hidden="true">
+            <span class="relative flex size-4 items-center justify-center">
+              <Icon name="arrow-up-right" class="absolute inset-0 size-4 transition-transform duration-300 ease-out group-hover:translate-x-[140%] group-hover:-translate-y-[140%] motion-reduce:transition-none" />
+              <Icon name="arrow-up-right" class="absolute inset-0 size-4 -translate-x-[140%] translate-y-[140%] transition-transform duration-300 ease-out group-hover:translate-x-0 group-hover:translate-y-0 motion-reduce:transition-none" />
+            </span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </Container>
+</Section>
+
+<style>
+  :global(section.services-section) {
+    padding-block: clamp(4rem, 7vw, 6.5rem);
+  }
+
+  .studio-services-intro {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .studio-services-intro > div:last-child {
+    display: flex;
+    max-width: 32rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .studio-services-intro a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-brand-dark);
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  .studio-services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+    margin-top: 2rem;
+  }
+
+  .studio-service-card {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.875rem;
+    min-height: 4.5rem;
+    padding: 1rem 1.125rem;
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--ui-radius-lg);
+    background: var(--color-surface);
+    box-shadow: var(--ui-elevation-soft);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .studio-service-icon {
+    display: grid;
+    width: 2.25rem;
+    height: 2.25rem;
+    flex: none;
+    place-items: center;
+    border: 1px solid color-mix(in oklab, var(--color-brand-accent) 28%, transparent);
+    border-radius: var(--ui-radius-full);
+    background: transparent;
+    color: var(--color-brand-accent);
+    font-size: 1.125rem;
+  }
+
+  .studio-service-content {
+    min-width: 0;
+  }
+
+  .studio-service-title-line {
+    display: flex;
+    min-width: 0;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .studio-service-number {
+    flex: none;
+    color: var(--ui-text-on-light-subtle);
+    font-size: clamp(0.95rem, 1.2vw, 1.125rem) !important;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+  }
+
+  .studio-service-title {
+    min-width: 0;
+    font-size: clamp(0.95rem, 1.2vw, 1.125rem) !important;
+    line-height: 1.25;
+  }
+
+  .studio-service-description {
+    display: block;
+    margin-top: 0.625rem;
+    color: var(--ui-text-on-light-subtle);
+    font-size: clamp(0.8125rem, 0.35rem + 0.45vw, 0.9375rem);
+    line-height: 1.5;
+  }
+
+  .studio-service-arrow {
+    display: grid;
+    width: 2rem;
+    height: 2rem;
+    flex: none;
+    place-items: center;
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--ui-radius-full);
+    color: var(--color-brand-dark);
+    font-size: 0.9375rem;
+  }
+
+  @media (min-width: 48rem) and (max-width: 63.99rem) {
+    .studio-services-intro {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+      gap: 1.5rem;
+    }
+
+    .studio-services-description-wrap {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      max-width: 42rem;
+    }
+
+    .studio-services-link-wrap {
+      align-self: end;
+      justify-self: end;
+    }
+
+    .studio-services-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .studio-services-grid[data-service-count="5"] .studio-service-card:last-child {
+      grid-column: 1 / -1;
+    }
+
+    .studio-service-card {
+      min-height: 13rem;
+      align-items: start;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .studio-services-intro {
+      grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 1fr) auto;
+      align-items: end;
+      gap: clamp(1.5rem, 2vw, 2.5rem);
+    }
+
+    .studio-services-intro--compact {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .studio-services-description-wrap {
+      display: block;
+      align-self: end;
+      justify-self: center;
+      max-width: 36rem;
+      text-align: center;
+    }
+
+    .studio-services-link-wrap {
+      align-self: end;
+      justify-self: end;
+      padding-top: 0;
+    }
+
+    .studio-services-grid {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: clamp(0.875rem, 1.5vw, 1.5rem);
+    }
+
+    .studio-service-card {
+      grid-column: span 2;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-rows: auto auto;
+      align-items: start;
+      gap: 0.875rem;
+      min-height: 0;
+      padding: clamp(1.125rem, 1.6vw, 1.5rem);
+    }
+
+    .studio-services-grid[data-service-count="5"] .studio-service-card:nth-child(n + 4) {
+      grid-column: span 3;
+    }
+
+    .studio-service-icon {
+      grid-column: 1;
+      grid-row: 1;
+      width: 3rem;
+      height: 3rem;
+      font-size: 1.35rem;
+    }
+
+    .studio-service-content {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      align-self: start;
+    }
+
+    .studio-service-title-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.625rem;
+    }
+
+    .studio-service-arrow {
+      grid-column: 2;
+      grid-row: 1;
+      justify-self: end;
+      align-self: center;
+    }
+  }
+</style>

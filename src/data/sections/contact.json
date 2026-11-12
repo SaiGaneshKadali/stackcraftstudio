@@ -1,0 +1,85 @@
+{
+  "eyebrow": "START A PROJECT",
+  "title": "Let's Talk About Your Website",
+  "description": "Tell us what you need to build, customize, or maintain. Fill out the project form below or start an instant chat on WhatsApp.",
+  "detailsHeading": "Direct Contact & Profiles",
+  "detailsDescription": "Based in Hyderabad, Telangana, India. Available for freelance builds and ongoing website care.",
+  "emailLabel": "Email",
+  "phoneLabel": "Phone",
+  "whatsappLabel": "WhatsApp",
+  "locationLabel": "Location",
+  "whatsappButtonLabel": "Send via WhatsApp",
+  "emailButtonLabel": "Open Email App",
+  "socialLabel": "Developer Profiles",
+  "formEndpoint": "/send-form.php",
+  "web3formsKey": "",
+  "formFields": [
+    {
+      "name": "name",
+      "label": "Name",
+      "type": "text",
+      "required": true,
+      "placeholder": "Your full name",
+      "autoComplete": "name"
+    },
+    {
+      "name": "email",
+      "label": "Email",
+      "type": "email",
+      "required": true,
+      "placeholder": "you@company.com",
+      "autoComplete": "email"
+    },
+    {
+      "name": "service",
+      "label": "Service Required",
+      "type": "select",
+      "required": true,
+      "placeholder": "Select a service",
+      "options": [
+        { "value": "WordPress Website Development", "label": "WordPress Website Development" },
+        { "value": "React Development", "label": "React Development" },
+        { "value": "Node.js Development", "label": "Node.js Development" },
+        { "value": "Custom Website Development", "label": "Custom Website Development" },
+        { "value": "Website Maintenance & Support", "label": "Website Maintenance & Support" },
+        { "value": "General Consultation", "label": "General Consultation" }
+      ]
+    },
+    {
+      "name": "budget",
+      "label": "Budget (Optional)",
+      "type": "select",
+      "required": false,
+      "placeholder": "Select an estimated budget (optional)",
+      "options": [
+        { "value": "Under $500", "label": "Under $500 / ₹40,000" },
+        { "value": "$500 - $1,500", "label": "$500 - $1,500" },
+        { "value": "$1,500 - $3,000", "label": "$1,500 - $3,000" },
+        { "value": "$3,000+", "label": "$3,000+" },
+        { "value": "Monthly Maintenance Retainer", "label": "Monthly Maintenance Retainer" },
+        { "value": "Not sure yet", "label": "Not sure yet / Let's discuss" }
+      ]
+    },
+    {
+      "name": "message",
+      "label": "Project Description",
+      "type": "textarea",
+      "required": true,
+      "rows": 5,
+      "placeholder": "Describe your website goals, target timeline, or maintenance requirements...",
+      "autoComplete": "off"
+    }
+  ],
+  "submitLabel": "Send Project Inquiry",
+  "submittingLabel": "Preparing...",
+  "resetLabel": "Send another inquiry",
+  "successMessage": "Thank you! Your project inquiry has been sent and we will reply shortly.",
+  "handoffMessage": "Your inquiry details are ready! Click Send via WhatsApp or Open Email App below to deliver your request immediately.",
+  "errorMessage": "Something went wrong while sending your inquiry. Please try again or reach out via WhatsApp.",
+  "map": {
+    "openLabel": "Open in Google Maps",
+    "externalLabel": "Open larger map in Google Maps",
+    "consentMessage": "Map loads once external services are accepted.",
+    "cookieSettingsLabel": "Cookie settings"
+  }
+}

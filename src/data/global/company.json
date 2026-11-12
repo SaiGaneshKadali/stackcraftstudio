@@ -1,0 +1,36 @@
+{
+  "fullName": "StackCraft Studio",
+  "name": "StackCraft Studio",
+  "branding": {
+    "icon": "ph-code",
+    "font": "Satoshi",
+    "tagline": "We Build. We Maintain. We Grow.",
+    "logoImage": "",
+    "favicon": "/favicon.svg",
+    "logoSuffix": "Logo"
+  },
+  "address": "Hyderabad, Telangana, India",
+  "zipCode": "",
+  "city": "Hyderabad, Telangana",
+  "country": "IN",
+  "phone": "+91 9121715831",
+  "showPhone": true,
+  "whatsapp": "+91 9121715831",
+  "showWhatsApp": true,
+  "email": "hello@stackcraftstudio.com",
+  "hours": "Mon-Sat: 09:00 - 20:00",
+  "nip": "",
+  "krs": "",
+  "regon": "",
+  "siteUrl": "https://stackcraftstudio.com",
+  "priceRange": "$$",
+  "description": "Freelance web development and ongoing website maintenance studio creating WordPress, React, Node.js, and custom websites.",
+  "geo": {
+    "lat": 17.385,
+    "lng": 78.4867
+  },
+  "socials": {
+    "github": "https://github.com/SaiGaneshKadali",
+    "linkedin": "https://www.linkedin.com/in/sai-ganesh-kadali/"
+  }
+}

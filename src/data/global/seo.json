@@ -1,0 +1,13 @@
+{
+  "defaultTitle": "StackCraft Studio | Custom Websites, WordPress, React & Node.js",
+  "defaultDescription": "We Build. We Maintain. We Grow. Freelance web development and website maintenance studio specializing in WordPress, React, Node.js, and custom websites.",
+  "defaultOgImage": "/og-image.png",
+  "index": false,
+  "follow": true,
+  "analytics": {
+    "googleAnalyticsId": "",
+    "googleTagManagerId": "",
+    "facebookPixelId": "",
+    "clarityId": ""
+  }
+}

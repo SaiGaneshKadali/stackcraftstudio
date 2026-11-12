@@ -1,0 +1,27 @@
+{
+  "title": "Frequently Asked Questions",
+  "description": "Clear answers on website builds, pricing structure, timelines, and ongoing maintenance support.",
+  "tagline": "FAQ",
+  "items": [
+    {
+      "q": "Which technology should I choose: WordPress, React, or a custom build?",
+      "a": "If you want easy self-editing for a business site, blog, or landing page, WordPress works great. If you need rich interactive features, dashboards, or custom API workflows, React and Node.js are ideal. During our initial chat, we recommend the simplest reliable stack for your goals."
+    },
+    {
+      "q": "How is project pricing and timeline determined?",
+      "a": "Pricing and timelines depend on scope, number of pages, integrations, and custom functionality. Focused business or portfolio sites typically launch in 1 to 3 weeks, while custom React and Node.js applications are scoped with clear milestones and upfront estimates."
+    },
+    {
+      "q": "What does Website Maintenance & Support include?",
+      "a": "Maintenance covers routine security and dependency updates, plugin or package compatibility checks, bug fixes, scheduled backups, uptime and speed optimization, and day-to-day content or layout updates."
+    },
+    {
+      "q": "Can you fix bugs or take over maintenance on an existing website?",
+      "a": "Yes. Whether your existing WordPress, React, Node.js, or HTML site needs troubleshooting, speed optimization, layout fixes, or ongoing care, we start with a quick technical audit and resolve issues cleanly."
+    },
+    {
+      "q": "Will my website be mobile-friendly and SEO-ready?",
+      "a": "Every site we build is mobile-first, tested across phone, tablet, and desktop screen sizes, and structured with clean semantic HTML, fast asset loading, and proper SEO metadata."
+    }
+  ]
+}

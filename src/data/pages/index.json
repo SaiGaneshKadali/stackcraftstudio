@@ -1,0 +1,19 @@
+{
+  "seo": {
+    "title": "StackCraft Studio | Custom Websites, WordPress, React & Node.js",
+    "description": "We Build. We Maintain. We Grow. Freelance web development and website maintenance studio specializing in WordPress, React, Node.js, and custom websites."
+  },
+  "heading": "Websites Built to Perform. Maintained to Last.",
+  "sections": [
+    { "id": "navbar", "variant": "floating" },
+    { "id": "hero", "variant": "stackcraftstudio" },
+    { "id": "portfolio", "variant": "stackcraftstudio" },
+    { "id": "services", "variant": "default" },
+    { "id": "about", "variant": "default" },
+    { "id": "processIconSteps", "variant": "default" },
+    { "id": "faq3", "variant": "default" },
+    { "id": "testimonials", "variant": "v2" },
+    { "id": "contact", "variant": "split" },
+    { "id": "footer", "variant": "stackcraftstudio" }
+  ]
+}

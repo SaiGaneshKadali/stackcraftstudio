@@ -1,0 +1,66 @@
+---
+import companyRaw from '@data/global/company.json';
+import seo from '@data/global/seo.json';
+import type { CompanyConfig } from '@/types/config';
+import { getSocialUrls } from '@utils/socials';
+import { SITE_URL } from '../../../../site.config.mjs';
+
+interface Props {
+	template?: 'default' | 'affiliate';
+}
+
+const { template = 'default' } = Astro.props;
+
+const jsonLd = (data: object): string => JSON.stringify(data).replace(/</g, '\\u003c');
+
+const company = companyRaw as CompanyConfig & { country?: string };
+const siteBase = SITE_URL.replace(/\/$/, '');
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': 'ProfessionalService',
+	name: company.fullName || company.name,
+	description: company.description || seo.defaultDescription,
+	image: `${siteBase}/og-image.png`,
+	'@id': siteBase,
+	url: siteBase,
+	...(company.phone ? { telephone: company.phone } : {}),
+	email: company.email,
+	priceRange: company.priceRange || '$$',
+	address: {
+		'@type': 'PostalAddress',
+		streetAddress: company.address,
+		addressLocality: company.city,
+		...(company.zipCode ? { postalCode: company.zipCode } : {}),
+		addressCountry: company.country || 'IN',
+	},
+	geo: {
+		'@type': 'GeoCoordinates',
+		latitude: company.geo?.lat || 17.385,
+		longitude: company.geo?.lng || 78.4867,
+	},
+	openingHoursSpecification: [
+		{
+			'@type': 'OpeningHoursSpecification',
+			dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+			opens: company.hours?.split(' - ')?.[0]?.split(': ')?.pop() ?? '09:00',
+			closes: company.hours?.split(' - ')?.[1] ?? '20:00',
+		},
+	],
+	sameAs: getSocialUrls(company),
+};
+
+const websiteSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'WebSite',
+	name: seo.defaultTitle,
+	url: siteBase,
+};
+---
+
+{template !== 'affiliate' && (
+	<>
+		<script type="application/ld+json" set:html={jsonLd(schema)} />
+		<script type="application/ld+json" set:html={jsonLd(websiteSchema)} />
+	</>
+)}

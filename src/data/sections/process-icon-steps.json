@@ -1,0 +1,32 @@
+{
+  "en": {
+    "heading": "How We Work",
+    "description": "A transparent four-step workflow from initial requirements to deployment and ongoing website care.",
+    "steps": [
+      {
+        "num": 1,
+        "title": "Requirements & Scope",
+        "description": "We discuss your goals, required pages, and features to recommend the right fit across WordPress, React, Node.js, or custom code.",
+        "icon": "diagnose"
+      },
+      {
+        "num": 2,
+        "title": "Structure & UI Plan",
+        "description": "We align on page hierarchy, responsive wireframes, and clear calls to action before full implementation begins.",
+        "icon": "plan"
+      },
+      {
+        "num": 3,
+        "title": "Build & Deployment",
+        "description": "We write clean code, integrate APIs or CMS controls, test performance across devices, and launch safely on your domain.",
+        "icon": "implement"
+      },
+      {
+        "num": 4,
+        "title": "Maintenance & Growth",
+        "description": "After launch, we support your website with security updates, bug fixes, backups, content edits, and speed tuning.",
+        "icon": "monitor"
+      }
+    ]
+  }
+}

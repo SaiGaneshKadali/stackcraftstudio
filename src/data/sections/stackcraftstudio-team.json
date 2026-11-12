@@ -1,0 +1,15 @@
+{
+  "eyebrow": "ABOUT STACKCRAFT STUDIO",
+  "title": "Reliable engineering, clear communication, long-term care",
+  "description": "StackCraft Studio is a freelance web development studio led by Sai Ganesh Kadali in Hyderabad, India. We partner with founders, agencies, and local businesses to build websites that work smoothly and stay well-maintained after launch.",
+  "image": "/assets/images/stackcraftstudio/stackcraftstudio-about-team.webp",
+  "imageAlt": "StackCraft Studio web development and collaboration workspace",
+  "studioBadge": "Hyderabad, Telangana, India · Available for Global Remote Work",
+  "checks": [
+    "Flexible stack choice across WordPress, React, Node.js, or custom builds",
+    "Clean, responsive layouts tested across desktop and mobile viewports",
+    "Direct post-launch maintenance for updates, backups, and bug fixes"
+  ],
+  "buttonLabel": "Let's Talk",
+  "buttonHref": "#contact"
+}

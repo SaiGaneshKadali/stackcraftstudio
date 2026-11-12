@@ -1,0 +1,36 @@
+{
+  "title": "Client Reviews",
+  "description": "Feedback across our WordPress and React website builds and ongoing maintenance support.",
+  "tagline": "Reviews",
+  "avatarAltPrefix": "Client badge",
+  "items": [
+    {
+      "badge": "WordPress Website",
+      "quote": "StackCraft Studio delivered a clean, well-structured WordPress website that makes our IT training programs and services easy to explore and update.",
+      "author": "Rontech Solutions",
+      "initials": "RS",
+      "role": "rontechsol.com"
+    },
+    {
+      "badge": "React Web Application",
+      "quote": "Our React frontend launched with crisp typography, responsive layouts, and fast navigation tailored for prospective software engineering students.",
+      "author": "Algointelligenz",
+      "initials": "AI",
+      "role": "algointelligenz.com"
+    },
+    {
+      "badge": "WordPress Website",
+      "quote": "From course listings and upcoming batch schedules to student inquiry flows, our WordPress site runs smoothly and is simple for our team to manage.",
+      "author": "Swhizz",
+      "initials": "SW",
+      "role": "swhizz.in"
+    },
+    {
+      "badge": "WordPress Website",
+      "quote": "Reliable communication from start to launch. Our WordPress business website presents our construction portfolio and services cleanly on every device.",
+      "author": "MB Al Moqatam Contracting",
+      "initials": "AM",
+      "role": "almoqatamcont.com"
+    }
+  ]
+}

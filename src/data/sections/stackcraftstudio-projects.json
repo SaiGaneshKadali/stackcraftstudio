@@ -1,0 +1,40 @@
+{
+  "title": "Selected Work",
+  "description": "Client websites built with WordPress and React.",
+  "linkLabel": "Let's Talk",
+  "linkHref": "#contact",
+  "items": [
+    {
+      "category": "WordPress Website Development",
+      "title": "Rontech Solutions",
+      "description": "Corporate IT training and services website built on WordPress with clear service structure and quote request CTAs.",
+      "href": "https://rontechsol.com/",
+      "image": "/assets/images/stackcraftstudio/stackcraftstudio-project-rontech.webp",
+      "alt": "Rontech Solutions WordPress website homepage"
+    },
+    {
+      "category": "React Website Development",
+      "title": "Algointelligenz",
+      "description": "Modern responsive frontend application built with React for an AI and software engineering education platform.",
+      "href": "https://algointelligenz.com/",
+      "image": "/assets/images/stackcraftstudio/stackcraftstudio-project-algointelligenz.webp",
+      "alt": "Algointelligenz React web application homepage"
+    },
+    {
+      "category": "WordPress Website Development",
+      "title": "Swhizz",
+      "description": "WordPress IT training institute website featuring course catalogs, upcoming batches, and student registration flows.",
+      "href": "https://swhizz.in/",
+      "image": "/assets/images/stackcraftstudio/stackcraftstudio-project-swhizz.webp",
+      "alt": "Swhizz WordPress website homepage"
+    },
+    {
+      "category": "WordPress Website Development",
+      "title": "MB Al Moqatam Contracting",
+      "description": "Construction and architectural services business website built on WordPress with project and team showcases.",
+      "href": "https://almoqatamcont.com/",
+      "image": "/assets/images/stackcraftstudio/stackcraftstudio-project-almoqatam.webp",
+      "alt": "MB Al Moqatam Contracting WordPress website homepage"
+    }
+  ]
+}

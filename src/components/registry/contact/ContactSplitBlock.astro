@@ -1,0 +1,316 @@
+---
+import Section from "@components/ui/layout/Section.astro";
+import Container from "@components/ui/layout/Container.astro";
+import Heading from "@components/ui/atoms/Heading.astro";
+import Text from "@components/ui/atoms/Text.astro";
+import Icon from "@components/ui/atoms/Icon.astro";
+import ContactDetails from "@components/ui/molecules/ContactDetails.astro";
+import ContactForm from "@components/ui/molecules/ContactForm.astro";
+import GoogleMapFrame from "@components/ui/molecules/GoogleMapFrame.astro";
+import { getEnabledSocialLinks } from "@utils/socials";
+
+type ContactVariant = "split" | "map" | "simple" | "default";
+
+type ContactField = {
+  name: string;
+  label: string;
+  type?: "text" | "email" | "tel" | "number" | "url" | "password" | "date" | "textarea" | "select" | "checkbox";
+  required?: boolean;
+  placeholder?: string;
+  rows?: number;
+  autoComplete?: string;
+  options?: { value: string; label: string }[];
+};
+
+export interface Props {
+  variant?: ContactVariant;
+  sectionId?: string;
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  detailsHeading?: string;
+  detailsDescription?: string;
+  emailLabel?: string;
+  phoneLabel?: string;
+  whatsappLabel?: string;
+  locationLabel?: string;
+  whatsappButtonLabel?: string;
+  emailButtonLabel?: string;
+  email?: string;
+  phone?: string;
+  whatsapp?: string;
+  address?: string;
+  mapUrl?: string;
+  formEndpoint?: string;
+  web3formsKey?: string;
+  formFields?: ContactField[];
+  submitLabel?: string;
+  submittingLabel?: string;
+  resetLabel?: string;
+  successMessage?: string;
+  handoffMessage?: string;
+  errorMessage?: string;
+  socialLabel?: string;
+  company?: {
+    name?: string;
+    email?: string;
+    phone?: string;
+    showPhone?: boolean;
+    whatsapp?: string;
+    showWhatsApp?: boolean;
+    address?: string;
+    zipCode?: string;
+    city?: string;
+    socials?: Record<string, string>;
+  };
+  headingTag?: string;
+}
+
+const {
+  variant = "split",
+  sectionId = "contact",
+  eyebrow = "",
+  title = "",
+  description = "",
+  detailsHeading = "",
+  detailsDescription = "",
+  emailLabel = "Email",
+  phoneLabel = "Phone",
+  whatsappLabel = "WhatsApp",
+  locationLabel = "Location",
+  whatsappButtonLabel = "",
+  emailButtonLabel = "",
+  email: emailProp = "",
+  phone: phoneProp = "",
+  whatsapp: whatsappProp = "",
+  address: addressProp = "",
+  mapUrl = "",
+  formEndpoint = "/send-form.php",
+  web3formsKey = "",
+  formFields = [],
+  submitLabel = "",
+  submittingLabel = "",
+  resetLabel = "",
+  successMessage = "",
+  handoffMessage = "",
+  errorMessage = "",
+  socialLabel = "",
+  headingTag = "h2",
+  company,
+} = Astro.props as Props;
+
+const email = emailProp || company?.email || "";
+const showPhone = company?.showPhone !== false;
+const phone = showPhone ? (phoneProp || company?.phone || "") : "";
+const showWhatsApp = company?.showWhatsApp !== false;
+const whatsappNumber = showWhatsApp ? (whatsappProp || company?.whatsapp || company?.phone || "") : "";
+const whatsappDigits = whatsappNumber.replace(/\D/g, "");
+const address = addressProp || company?.address || "";
+const hasMap = typeof mapUrl === "string" && mapUrl.trim().length > 0;
+const isSimple = variant === "simple";
+const isDefault = variant === "default";
+const isMap = variant === "map";
+const fields = Array.isArray(formFields) ? formFields : [];
+const formId = `contact-form-${sectionId}-${variant}`;
+const fieldIdPrefix = `${sectionId}-${variant}`;
+const phoneHref = phone ? `tel:${phone.replace(/[^\d+]/g, "")}` : undefined;
+const whatsappHref = whatsappDigits
+  ? `https://wa.me/${whatsappDigits}?text=${encodeURIComponent(`Hi ${company?.name || "StackCraft Studio"}, I'd like to discuss a website project.`)}`
+  : undefined;
+
+const contactItems = [
+  { key: "whatsapp" as const, label: whatsappLabel, icon: "whatsapp-logo", href: whatsappHref, value: whatsappNumber, external: true },
+  { key: "email" as const, label: emailLabel, icon: "envelope", href: email ? `mailto:${email}` : undefined, value: email },
+  { key: "phone" as const, label: phoneLabel, icon: "phone", href: phoneHref, value: phone },
+  { key: "address" as const, label: locationLabel, icon: "map-pin", href: undefined, value: address },
+].filter(
+  (item) => item.value.trim().length > 0,
+);
+
+const socialLinks = company ? getEnabledSocialLinks(company) : [];
+---
+
+<Section id={sectionId} tone="page" class="border-t border-brand-dark/10">
+  <Container class="w-full max-w-none px-[clamp(1.5rem,5vw,5rem)]">
+    {
+      isDefault ? (
+        <div class="space-y-8">
+          <div class="mx-auto max-w-2xl text-center">
+            {eyebrow && (
+              <Text tag="p" variant="accent-label" class="mb-3 font-sans font-semibold tracking-[0.16em]">{eyebrow}</Text>
+            )}
+            <Heading tag={headingTag} variant="section-title" class="text-brand-dark">
+              {title}
+            </Heading>
+            <Text variant="lead" class="mt-3 text-brand-dark/70">
+              {description}
+            </Text>
+          </div>
+
+          <div class="grid gap-8 lg:grid-cols-2">
+            <div class="space-y-6">
+              <ContactForm
+                formId={formId}
+                fieldIdPrefix={fieldIdPrefix}
+                fields={fields}
+                submitLabel={submitLabel}
+                submittingLabel={submittingLabel}
+                resetLabel={resetLabel}
+                successMessage={successMessage}
+                handoffMessage={handoffMessage}
+                errorMessage={errorMessage}
+                endpoint={formEndpoint}
+                accessKey={web3formsKey}
+                mailtoEmail={email}
+                whatsappNumber={whatsappNumber}
+                whatsappLabel={whatsappLabel}
+                whatsappButtonLabel={whatsappButtonLabel}
+                emailButtonLabel={emailButtonLabel}
+                showHeader={false}
+                includeRodoConsent={false}
+              />
+            </div>
+
+            <div class="space-y-6">
+              {
+                hasMap && (
+                  <GoogleMapFrame
+                    embedUrl={mapUrl}
+                    iframeTitle={title || sectionId}
+                    class="min-h-[20rem]"
+                    wrapperClass="shadow-sm"
+                  />
+                )
+              }
+              <ContactDetails items={contactItems} variant="detailed" />
+            </div>
+          </div>
+        </div>
+      ) : isSimple ? (
+        <div class="mx-auto max-w-2xl">
+          <div class="space-y-4 text-center">
+            {eyebrow && (
+              <Text tag="p" variant="accent-label" class="font-sans font-semibold tracking-[0.16em]">{eyebrow}</Text>
+            )}
+            <Heading tag={headingTag} variant="section-title" class="text-brand-dark">
+              {title}
+            </Heading>
+            <Text variant="lead" class="text-brand-dark/70">
+              {description}
+            </Text>
+          </div>
+
+          <ContactForm
+            formId={formId}
+            fieldIdPrefix={fieldIdPrefix}
+            fields={fields}
+            submitLabel={submitLabel}
+            submittingLabel={submittingLabel}
+            resetLabel={resetLabel}
+            successMessage={successMessage}
+            handoffMessage={handoffMessage}
+            errorMessage={errorMessage}
+            endpoint={formEndpoint}
+            accessKey={web3formsKey}
+            mailtoEmail={email}
+            whatsappNumber={whatsappNumber}
+            whatsappLabel={whatsappLabel}
+            whatsappButtonLabel={whatsappButtonLabel}
+            emailButtonLabel={emailButtonLabel}
+            showHeader={false}
+            includeRodoConsent={false}
+            class="mt-10"
+          />
+        </div>
+      ) : (
+        <div class="grid items-start gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-12">
+          <div class="space-y-6">
+            <div class="space-y-3">
+              {eyebrow && (
+                <Text tag="p" variant="accent-label" class="font-sans font-semibold tracking-[0.16em]">{eyebrow}</Text>
+              )}
+              <Heading tag={headingTag} variant="section-title" class="text-brand-dark">
+                {title}
+              </Heading>
+              <Text variant="lead" class="max-w-2xl text-brand-dark/70">
+                {description}
+              </Text>
+            </div>
+
+            <ContactForm
+              formId={formId}
+              fieldIdPrefix={fieldIdPrefix}
+              fields={fields}
+              submitLabel={submitLabel}
+              submittingLabel={submittingLabel}
+              resetLabel={resetLabel}
+              successMessage={successMessage}
+              handoffMessage={handoffMessage}
+              errorMessage={errorMessage}
+              endpoint={formEndpoint}
+              accessKey={web3formsKey}
+              mailtoEmail={email}
+              whatsappNumber={whatsappNumber}
+              whatsappLabel={whatsappLabel}
+              whatsappButtonLabel={whatsappButtonLabel}
+              emailButtonLabel={emailButtonLabel}
+              showHeader={false}
+              includeRodoConsent={false}
+            />
+          </div>
+
+          <div class="space-y-6 lg:pt-4">
+            {detailsHeading && (
+              <div class="space-y-2">
+                <Heading tag="h3" variant="feature-title" class="text-brand-dark">
+                  {detailsHeading}
+                </Heading>
+                {detailsDescription && (
+                  <Text variant="body" class="text-brand-dark/70">
+                    {detailsDescription}
+                  </Text>
+                )}
+              </div>
+            )}
+
+            {
+              isMap && hasMap ? (
+                <GoogleMapFrame
+                  embedUrl={mapUrl}
+                  iframeTitle={title || sectionId}
+                  class="min-h-[20rem]"
+                  wrapperClass="shadow-sm"
+                />
+              ) : (
+                <ContactDetails items={contactItems} variant="detailed" />
+              )
+            }
+
+            {socialLinks.length > 0 && (
+              <div class="rounded-2xl border border-brand-dark/10 bg-surface p-5 shadow-sm">
+                {socialLabel && (
+                  <Text tag="p" variant="accent-label" class="mb-3 text-brand-dark/60">
+                    {socialLabel}
+                  </Text>
+                )}
+                <div class="flex flex-wrap gap-3">
+                  {socialLinks.map((social) => (
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex min-h-11 items-center gap-2 rounded-full border border-brand-dark/15 px-4 py-2 text-sm font-semibold text-brand-dark transition-colors hover:border-brand-accent hover:bg-brand-accent/10"
+                    >
+                      <Icon name={social.icon} class="text-base text-brand-accent" />
+                      <span>{social.label}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )
+    }
+  </Container>
+</Section>

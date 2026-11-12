@@ -1,0 +1,22 @@
+{
+  "menu": [
+    { "label": "Work", "href": "/#work" },
+    { "label": "Services", "href": "/#services" },
+    { "label": "About", "href": "/#about" },
+    { "label": "Process", "href": "/#process" },
+    { "label": "FAQ", "href": "/#faq" }
+  ],
+  "cta": {
+    "label": "Start a Project",
+    "href": "/#contact",
+    "prefix": "",
+    "hoverLabel": "Let's Talk"
+  },
+  "aria": {
+    "menuOpen": "Open navigation menu",
+    "menuClose": "Close navigation menu",
+    "menuExpand": "Expand submenu",
+    "navMain": "Main navigation",
+    "drawer": "Navigation menu"
+  }
+}

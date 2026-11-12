@@ -1,0 +1,13 @@
+{
+  "title": "Services Built Around Your Website",
+  "description": "",
+  "linkLabel": "Start a Project",
+  "linkHref": "#contact",
+  "items": [
+    { "number": "01.", "icon": "layout", "title": "WordPress Website Development", "description": "Business websites, landing pages, portfolio websites, and tailored WordPress customization built for straightforward editing.", "href": "#contact" },
+    { "number": "02.", "icon": "atom", "title": "React Development", "description": "Modern, responsive, interactive web applications and component-driven frontend development engineered for speed.", "href": "#contact" },
+    { "number": "03.", "icon": "hard-drives", "title": "Node.js Development", "description": "Scalable backend development, REST APIs, database integrations, and reliable server-side application logic.", "href": "#contact" },
+    { "number": "04.", "icon": "code", "title": "Custom Website Development", "description": "Tailor-made websites crafted from scratch around your exact business goals, workflows, and brand identity.", "href": "#contact" },
+    { "number": "05.", "icon": "wrench", "title": "Website Maintenance & Support", "description": "Bug fixes, security updates, performance optimization, content updates, automated backups, and ongoing technical support.", "href": "#contact" }
+  ]
+}

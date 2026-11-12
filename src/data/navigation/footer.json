@@ -1,0 +1,38 @@
+{
+  "about": "StackCraft Studio designs, builds, and maintains WordPress, React, Node.js, and custom websites.",
+  "contactTitle": "Contact",
+  "copyrightText": "All rights reserved.",
+  "aria": {
+    "quickNav": "Quick links and legal",
+    "legalDocs": "Legal documents"
+  },
+  "columns": [
+    {
+      "title": "Navigation",
+      "links": [
+        { "label": "Work", "href": "/#work" },
+        { "label": "Services", "href": "/#services" },
+        { "label": "About", "href": "/#about" },
+        { "label": "Process", "href": "/#process" },
+        { "label": "Contact", "href": "/#contact" }
+      ]
+    },
+    {
+      "title": "Legal",
+      "links": [
+        { "label": "Privacy Policy", "href": "/privacy-policy/" },
+        { "label": "Cookies", "href": "/cookies/" }
+      ]
+    }
+  ],
+  "newsletter": {
+    "title": "Stay Connected",
+    "description": "Reach out anytime for builds, updates, or maintenance support.",
+    "placeholder": "Your email address",
+    "consent": "I agree to the privacy policy."
+  },
+  "legal": [
+    { "label": "Privacy Policy", "href": "/privacy-policy/" },
+    { "label": "Cookies", "href": "/cookies/" }
+  ]
+}

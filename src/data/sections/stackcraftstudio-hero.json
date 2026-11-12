@@ -1,0 +1,18 @@
+{
+  "eyebrow": "WE BUILD. WE MAINTAIN. WE GROW.",
+  "heading": "Websites Built to Perform.",
+  "headingAccent": "Maintained to Last.",
+  "description": "Fast, conversion-focused WordPress, React, Node.js, and custom websites backed by dependable ongoing maintenance.",
+  "primaryCTA": { "label": "Start a Project", "href": "#contact" },
+  "secondaryCTA": { "label": "Explore Services", "href": "#services" },
+  "trustedBy": "",
+  "trustItems": [],
+  "image": "/assets/images/stackcraftstudio/stackcraftstudio-hero.webp",
+  "imageAlt": "Developer workspace showing web design and coding workflow",
+  "stats": [
+    { "value": "WordPress", "label": "Business & Portfolio Sites" },
+    { "value": "React", "label": "Interactive Frontend Apps" },
+    { "value": "Node.js", "label": "APIs & Backend Systems" },
+    { "value": "Care Plans", "label": "Updates, Backups & Fixes" }
+  ]
+}

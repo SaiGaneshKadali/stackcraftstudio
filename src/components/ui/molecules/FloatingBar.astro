@@ -1,0 +1,147 @@
+---
+// Why: FloatingBar keeps the configured phone, WhatsApp, and back-to-top actions accessible.
+import companyRaw from "@data/global/company.json";
+import floatingBar from "@data/global/floating-bar.json";
+
+export interface Props {
+  ariaBackToTop?: string;
+  ariaCall?: string;
+  ariaWhatsApp?: string;
+}
+
+const { ariaBackToTop, ariaCall = "", ariaWhatsApp = "" } = Astro.props;
+const company = companyRaw as typeof companyRaw & {
+  showPhone?: boolean;
+  whatsapp?: string;
+  showWhatsApp?: boolean;
+};
+
+const phoneRaw = company.showPhone === false ? "" : (company.phone || "").replace(/\D/g, "");
+const phoneHref = phoneRaw ? `tel:+${phoneRaw}` : "";
+
+const whatsappSource = company.whatsapp || company.phone || "";
+const whatsappRaw = company.showWhatsApp === false ? "" : whatsappSource.replace(/\D/g, "");
+const whatsappMessage = encodeURIComponent(`Hi ${company.name}, I'd like to discuss a website project.`);
+const whatsappHref = whatsappRaw ? `https://wa.me/${whatsappRaw}?text=${whatsappMessage}` : "";
+
+const backToTopLabel = ariaBackToTop || floatingBar.ariaBackToTop || "Back to top";
+---
+
+<div
+  id="floating-bar"
+  class="fixed bottom-4 right-4 z-50 flex flex-col gap-2 opacity-0 translate-y-4 pointer-events-none transition-all duration-500 ease-out sm:bottom-6 sm:right-6 sm:gap-2.5"
+  style="margin-bottom:env(safe-area-inset-bottom)"
+>
+  <button
+    id="fb-scroll-top"
+    type="button"
+    class="ui-icon-button border border-brand-dark/10 bg-white/80 text-brand-dark/60 shadow-sm backdrop-blur-xl transition-all duration-300 opacity-0 translate-y-2 pointer-events-none hidden hover:border-brand-primary/20 hover:bg-brand-primary/[0.08] hover:text-brand-primary hover:shadow-md active:scale-95"
+    aria-label={backToTopLabel}
+  >
+    <i class="ph ph-arrow-up text-lg sm:text-xl pointer-events-none" aria-hidden="true"></i>
+  </button>
+
+  {
+    whatsappHref && (
+      <a
+        href={whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="ui-icon-button border border-brand-dark/10 bg-white/85 text-brand-dark/75 shadow-sm backdrop-blur-xl transition-all duration-200 hover:border-brand-accent/40 hover:bg-brand-accent/15 hover:text-brand-dark hover:shadow-md active:scale-95"
+        aria-label={ariaWhatsApp || floatingBar.ariaWhatsApp || "Message us on WhatsApp"}
+      >
+        <i class="ph ph-whatsapp-logo text-lg sm:text-xl pointer-events-none" aria-hidden="true"></i>
+      </a>
+    )
+  }
+
+  {
+    phoneHref && (
+      <a
+        href={phoneHref}
+        class="ui-icon-button border border-brand-dark/10 bg-white/80 text-brand-dark/60 shadow-sm backdrop-blur-xl transition-all duration-200 hover:border-brand-primary/20 hover:bg-brand-primary/[0.08] hover:text-brand-primary hover:shadow-md active:scale-95"
+        aria-label={ariaCall || floatingBar.ariaCall || "Call us"}
+      >
+        <i class="ph ph-phone text-lg sm:text-xl pointer-events-none" aria-hidden="true"></i>
+      </a>
+    )
+  }
+</div>
+
+<script>
+  (function () {
+    if (window.__floatingBarInitialized) return;
+    window.__floatingBarInitialized = true;
+
+    var ticking: number | null = null;
+    var lastScrollY = window.scrollY;
+    var arrowShown = false;
+
+    function syncBar() {
+      var bar = document.getElementById("floating-bar");
+      if (!bar) return;
+
+      if (window.scrollY > 300) {
+        bar.classList.remove("opacity-0", "translate-y-4", "pointer-events-none");
+      } else {
+        bar.classList.add("opacity-0", "translate-y-4", "pointer-events-none");
+      }
+    }
+
+    function syncScrollTop(y: number) {
+      var btn = document.getElementById("fb-scroll-top");
+      if (!btn) return;
+      const scrollButton = btn;
+
+      var goingUp = y < lastScrollY;
+      var shouldShow = goingUp && y > 300;
+
+      if (shouldShow === arrowShown) return;
+      arrowShown = shouldShow;
+
+      if (shouldShow) {
+        scrollButton.classList.remove("hidden");
+        requestAnimationFrame(function () {
+          scrollButton.classList.remove("opacity-0", "translate-y-2", "pointer-events-none");
+        });
+      } else {
+        scrollButton.classList.add("opacity-0", "translate-y-2", "pointer-events-none");
+        window.setTimeout(function () {
+          if (!arrowShown) scrollButton.classList.add("hidden");
+        }, 300);
+      }
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = requestAnimationFrame(function () {
+        var y = window.scrollY;
+        syncBar();
+        syncScrollTop(y);
+        lastScrollY = y;
+        ticking = null;
+      });
+    }
+
+    document.addEventListener("click", function (event) {
+      if (!(event.target instanceof Element)) return;
+      var scrollBtn = event.target.closest("#fb-scroll-top");
+      if (!scrollBtn) return;
+
+      var lenis = window.__lenis;
+      if (lenis) {
+        lenis.scrollTo(0);
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    });
+
+    document.addEventListener("astro:page-load", function () {
+      lastScrollY = window.scrollY;
+      arrowShown = false;
+      syncBar();
+    });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    syncBar();
+  })();
+</script>

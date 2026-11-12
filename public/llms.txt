@@ -1,0 +1,19 @@
+# StackCraft Studio
+
+We Build. We Maintain. We Grow.
+
+Freelance web development and website maintenance studio based in Hyderabad, Telangana, India.
+
+## Services
+
+- WordPress Website Development (business websites, landing pages, portfolio sites, WordPress customization)
+- React Development (responsive, interactive frontend web applications)
+- Node.js Development (REST APIs, backend services, database integrations)
+- Custom Website Development (tailor-made responsive websites)
+- Website Maintenance & Support (bug fixes, security updates, performance optimization, backups, content updates)
+
+## Structure
+
+- Homepage (`/`): Hero, Selected Work, Services, About, Process, FAQ, Reviews, Contact Form & Footer
+- Legal pages: `/privacy-policy/`, `/cookies/`
+- Sitemap: `/sitemap-index.xml`

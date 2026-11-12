@@ -1,0 +1,24 @@
+---
+import { getStudioCopy, type StudioLocale } from "@utils/stackcraftstudio-i18n";
+
+interface Props {
+	mobileOnly?: boolean;
+	locale?: StudioLocale;
+}
+
+const { mobileOnly = true, locale = "en" } = Astro.props;
+const headerData = getStudioCopy(locale).navigation;
+---
+
+<button
+	type="button"
+	data-navbar-toggle
+	class:list={["ui-nav-menu-toggle", mobileOnly && "lg:hidden"]}
+	aria-controls="site-nav-drawer"
+	aria-expanded="false"
+	aria-label={headerData.aria.menuOpen}
+>
+	<span class="ui-nav-menu-toggle__bar" aria-hidden="true"></span>
+	<span class="ui-nav-menu-toggle__bar" aria-hidden="true"></span>
+	<span class="ui-nav-menu-toggle__bar" aria-hidden="true"></span>
+</button>
